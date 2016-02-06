@@ -37,3 +37,6 @@ C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\DelegateDecompiler.dll
 C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\DelegateDecompiler.EntityFramework.dll
 C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\Mono.Reflection.dll
 C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\AutoMapper.EF6.xml
+C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\System.Web.Cors.dll
+C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\System.Web.Http.Cors.dll
+C:\Div\Origin\15-Kanban-API\Kanban-API\Kanban-API\bin\System.Web.Http.Cors.xml

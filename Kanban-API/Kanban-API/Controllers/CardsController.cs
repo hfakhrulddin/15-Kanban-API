@@ -11,6 +11,8 @@ using System.Web.Http.Description;
 using Kanban_API;
 using Kanban_API.Models;
 using AutoMapper;
+
+
 namespace Kanban_API.Controllers
 {
     public class CardsController : ApiController
@@ -90,8 +92,10 @@ namespace Kanban_API.Controllers
             //////////the New code
             var dbcard = new Card(card);
 
-            card.CreatDate = dbcard.CreatDate;
-            card.ListID = dbcard.ListID;
+            //card.CreatDate = dbcard.CreatDate;
+            card.ListId = dbcard.ListId;
+            dbcard.CreatDate = DateTime.Now;
+
 
             db.Cards.Add(dbcard);
             db.SaveChanges();

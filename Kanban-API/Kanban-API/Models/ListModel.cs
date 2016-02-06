@@ -19,9 +19,6 @@ namespace Kanban_API.Models
             {
                 return $"http://localhost:50075/api/Lists/{ListId}/Cards";
             }
-
         }
-
-
     }
 }

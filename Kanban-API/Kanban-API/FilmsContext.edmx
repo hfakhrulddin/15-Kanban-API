@@ -4,28 +4,28 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FilmsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="FilmsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="CardId" />
           </Key>
-          <Property Name="CardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ListID" Type="int" Nullable="false" />
-          <Property Name="CreatDate" Type="datetime" Nullable="false" />
-          <Property Name="Text" Type="varchar" MaxLength="100" />
+          <Property Name="CardId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="ListID" Nullable="false" Type="int" />
+          <Property Name="CreatDate" Nullable="false" Type="datetime" />
+          <Property Name="Text" MaxLength="100" Type="varchar" />
         </EntityType>
         <EntityType Name="List">
           <Key>
             <PropertyRef Name="ListId" />
           </Key>
-          <Property Name="ListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="25" />
+          <Property Name="ListId" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" MaxLength="25" Type="varchar" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UserId" Type="int" />
         </EntityType>
         <Association Name="FK__Card__ListID__1273C1CD">
-          <End Role="List" Type="Self.List" Multiplicity="1" />
-          <End Role="Card" Type="Self.Card" Multiplicity="*" />
+          <End Type="Self.List" Multiplicity="1" Role="List" />
+          <End Type="Self.Card" Multiplicity="*" Role="Card" />
           <ReferentialConstraint>
             <Principal Role="List">
               <PropertyRef Name="ListId" />
@@ -39,8 +39,8 @@
           <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="List" EntityType="Self.List" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Card__ListID__1273C1CD" Association="Self.FK__Card__ListID__1273C1CD">
-            <End Role="List" EntitySet="List" />
-            <End Role="Card" EntitySet="Card" />
+            <End EntitySet="List" Role="List" />
+            <End EntitySet="Card" Role="Card" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -52,7 +52,7 @@
             <PropertyRef Name="CardId" />
           </Key>
           <Property Name="CardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ListID" Type="Int32" Nullable="false" />
+          <Property Name="ListId" Type="Int32" Nullable="false" />
           <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="List" Relationship="Self.FK__Card__ListID__1273C1CD" FromRole="Card" ToRole="List" />
@@ -75,7 +75,7 @@
               <PropertyRef Name="ListId" />
             </Principal>
             <Dependent Role="Card">
-              <PropertyRef Name="ListID" />
+              <PropertyRef Name="ListId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -97,7 +97,7 @@
             <EntityTypeMapping TypeName="FilmsModel.Card">
               <MappingFragment StoreEntitySet="Card">
                 <ScalarProperty Name="CardId" ColumnName="CardId" />
-                <ScalarProperty Name="ListID" ColumnName="ListID" />
+                <ScalarProperty Name="ListId" ColumnName="ListID" />
                 <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
                 <ScalarProperty Name="Text" ColumnName="Text" />
               </MappingFragment>

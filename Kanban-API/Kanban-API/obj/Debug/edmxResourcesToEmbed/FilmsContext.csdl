@@ -5,7 +5,7 @@
       <PropertyRef Name="CardId" />
     </Key>
     <Property Name="CardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ListID" Type="Int32" Nullable="false" />
+    <Property Name="ListId" Type="Int32" Nullable="false" />
     <Property Name="CreatDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="List" Relationship="Self.FK__Card__ListID__1273C1CD" FromRole="Card" ToRole="List" />
@@ -28,7 +28,7 @@
         <PropertyRef Name="ListId" />
       </Principal>
       <Dependent Role="Card">
-        <PropertyRef Name="ListID" />
+        <PropertyRef Name="ListId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

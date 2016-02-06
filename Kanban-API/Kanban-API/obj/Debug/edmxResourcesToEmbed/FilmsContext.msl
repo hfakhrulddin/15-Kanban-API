@@ -5,7 +5,7 @@
       <EntityTypeMapping TypeName="FilmsModel.Card">
         <MappingFragment StoreEntitySet="Card">
           <ScalarProperty Name="CardId" ColumnName="CardId" />
-          <ScalarProperty Name="ListID" ColumnName="ListID" />
+          <ScalarProperty Name="ListId" ColumnName="ListID" />
           <ScalarProperty Name="CreatDate" ColumnName="CreatDate" />
           <ScalarProperty Name="Text" ColumnName="Text" />
         </MappingFragment>

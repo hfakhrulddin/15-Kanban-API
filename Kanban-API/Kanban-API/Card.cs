@@ -12,7 +12,6 @@ namespace Kanban_API
     using Models;
     using System;
     using System.Collections.Generic;
-    using AutoMapper;
 
     public partial class Card
     {
@@ -21,25 +20,26 @@ namespace Kanban_API
 
         }
 
+
         public Card(CardModel card)
         {
             this.Update(card);
             card.CreatDate = DateTime.Now;
         }
         public int CardId { get; set; }
-        public int ListID { get; set; }
-        public System.DateTime CreatDate { get; set; }
+        public int ListId { get; set; }
+        public Nullable<DateTime> CreatDate { get; set; }
         public string Text { get; set; }
-
         public virtual List List { get; set; }
+
+
 
         public void Update(CardModel model)
         {
             CardId = model.CardId;
-            ListID = model.ListID;
+            ListId = model.ListId;
             CreatDate = model.CreatDate;
             Text = model.Text;
         }
-
     }
 }

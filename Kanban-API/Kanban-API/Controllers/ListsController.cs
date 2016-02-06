@@ -24,7 +24,8 @@ namespace Kanban_API.Controllers
         ////    return db.Lists;
         ////}
         ///public IQueryable<ListModel> GetLists()  
-        // BElow code is has been chaged to use the auto mapper.
+        ///
+        // Below code is has been chaged to use the auto mapper.
         public IEnumerable<ListModel> GetLists()
         {
             return Mapper.Map<IEnumerable<ListModel>>(db.Lists);
@@ -52,9 +53,9 @@ namespace Kanban_API.Controllers
 
         //GET: api/List/5/Card
         [Route("api/Lists/{listID}/Cards")]
-        public IEnumerable<CardModel> GetCardsforList(int listID)
+        public IEnumerable<CardModel> GetCardsforList(int listId)
         {
-            var cards = db.Cards.Where(c => c.ListID == listID);
+            var cards = db.Cards.Where(c => c.ListId == listId);
             return Mapper.Map<IEnumerable<CardModel>>(cards);
         }
         // PUT: api/Lists/5

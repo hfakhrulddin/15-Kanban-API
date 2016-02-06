@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html ng-app="kanban">
+<head>
+    <title>Kanban-API-Fullsatck</title>
+	<meta charset="utf-8" />
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <style>
+        body {background:gray;}
+    </style>
+</head>
+<body ng-controller="IndexController">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><h4>kanban</h4></a>
+            <div class="navbar-header">
+            </div> 
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <pre>{{lists | json}}</pre>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="list in lists">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="list.Name" ng-disabled="!list.Edit">
+                            
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="list.Edit = !list.Edit;"><i class="fa fa-pencil-square-o"></i></button>
+                                <button class="btn btn-default" type="button" ng-click="deleteList(list)"><i class="fa fa-eraser"></i></button>
+                             
+                                
+                            </span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!--- repeated the cards here-->
+
+
+                        <div ng-repeat="card in list.cards">
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="card.Text" ng-disabled="!card.Edit">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" ng-click="card.Edit = !card.Edit;"><i class="fa fa-pencil-square-o"></i></button>
+                                    <button class="btn btn-default" type="button" ng-click="deleteCard(card)"><i class="fa fa-minus"></i></button>
+                                </span>   
+                            </div>
+                            <br />
+                        </div>
+
+
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="list.newCard.Text" placeholder="Add Card...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="addCard(list)"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="newList.Name" placeholder="Add List...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" ng-click="addList()"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

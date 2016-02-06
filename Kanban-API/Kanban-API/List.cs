@@ -20,12 +20,14 @@ namespace Kanban_API
         {
             this.Cards = new HashSet<Card>();
         }
+
+
         public List(ListModel list)
         {
             this.Update(list);
             list.CreatedDate = DateTime.Now;
         }
-    
+
         public int ListId { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
@@ -35,6 +37,7 @@ namespace Kanban_API
 
         public virtual ICollection<Card> Cards { get; set; }
 
+
         public void Update(ListModel model)
         {
             ListId = model.ListId;
@@ -42,5 +45,10 @@ namespace Kanban_API
             CreatedDate = model.CreatedDate;
             UserId = model.UserId;
         }
+
+
+
+
+
     }
 }

@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e4f6646595de4f8ea6a76b2a510fcb18" Name="Diagram1">
-        <EntityTypeShape EntityType="FilmsModel.Card" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FilmsModel.Card" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FilmsModel.List" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="FilmsModel.FK__Card__ListID__1273C1CD" ManuallyRouted="false" />
       </Diagram>
