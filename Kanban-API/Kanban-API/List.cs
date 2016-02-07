@@ -21,7 +21,6 @@ namespace Kanban_API
             this.Cards = new HashSet<Card>();
         }
 
-
         public List(ListModel list)
         {
             this.Update(list);
@@ -37,18 +36,12 @@ namespace Kanban_API
 
         public virtual ICollection<Card> Cards { get; set; }
 
-
         public void Update(ListModel model)
         {
             ListId = model.ListId;
             Name = model.Name;
-            CreatedDate = model.CreatedDate;
+            //CreatedDate = model.CreatedDate;
             UserId = model.UserId;
         }
-
-
-
-
-
     }
 }

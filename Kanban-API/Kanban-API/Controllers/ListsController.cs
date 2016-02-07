@@ -17,6 +17,7 @@ namespace Kanban_API.Controllers
     public class ListsController : ApiController
     {
         private FilmsEntities db = new FilmsEntities();
+
         // GET: api/Lists
 //Below is the default code.
         ////public IQueryable<List> GetLists()
@@ -39,6 +40,7 @@ namespace Kanban_API.Controllers
             //    UserId = l.UserId
             //});
         }
+
         // GET: api/Lists/5
         [ResponseType(typeof(ListModel))]
         public IHttpActionResult GetList(int id)
@@ -58,6 +60,7 @@ namespace Kanban_API.Controllers
             var cards = db.Cards.Where(c => c.ListId == listId);
             return Mapper.Map<IEnumerable<CardModel>>(cards);
         }
+
         // PUT: api/Lists/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutList(int id, ListModel list)
@@ -110,6 +113,8 @@ namespace Kanban_API.Controllers
             //////////the New code
             var dblist = new List(list);
 
+
+           dblist.CreatedDate = DateTime.Now;
            list.CreatedDate =  dblist.CreatedDate; //those tow lines to show the user the old values with updated dates.
            list.ListId = dblist.ListId;
 

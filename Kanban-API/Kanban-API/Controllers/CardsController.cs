@@ -12,7 +12,6 @@ using Kanban_API;
 using Kanban_API.Models;
 using AutoMapper;
 
-
 namespace Kanban_API.Controllers
 {
     public class CardsController : ApiController
@@ -27,6 +26,7 @@ namespace Kanban_API.Controllers
     {
         return Mapper.Map<IEnumerable<CardModel>>(db.Cards);
     }
+
     // GET: api/Cards/5
     [ResponseType(typeof(CardModel))]
     public IHttpActionResult GetCard(int id)
@@ -39,6 +39,7 @@ namespace Kanban_API.Controllers
 
         return Ok(Mapper.Map<CardModel>(card));
     }
+
     // PUT: api/Cards/5
     [ResponseType(typeof(void))]
     public IHttpActionResult PutCard(int id, CardModel card)
@@ -80,6 +81,7 @@ namespace Kanban_API.Controllers
 
         return StatusCode(HttpStatusCode.NoContent);
     }
+
         // POST: api/Cards
         [ResponseType(typeof(CardModel))]
         public IHttpActionResult PostCard(CardModel card)
@@ -88,20 +90,20 @@ namespace Kanban_API.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             //////////the New code
             var dbcard = new Card(card);
 
-            //card.CreatDate = dbcard.CreatDate;
-            card.ListId = dbcard.ListId;
-            dbcard.CreatDate = DateTime.Now;
 
+            dbcard.CreatDate = DateTime.Now;  //Added to fix the probelm.
+            card.CreatDate = dbcard.CreatDate;
+            card.ListId = dbcard.ListId;
 
             db.Cards.Add(dbcard);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = card.CardId }, card);
         }
+
         // DELETE: api/Cards/5
         [ResponseType(typeof(CardModel))]
     public IHttpActionResult DeleteCard(int id)
@@ -117,6 +119,7 @@ namespace Kanban_API.Controllers
 
         return Ok(Mapper.Map<CardModel>(card));
     }
+
     protected override void Dispose(bool disposing)
     {
         if (disposing)
@@ -125,6 +128,7 @@ namespace Kanban_API.Controllers
         }
         base.Dispose(disposing);
     }
+
     private bool CardExists(int id)
     {
         return db.Cards.Count(e => e.CardId == id) > 0;
