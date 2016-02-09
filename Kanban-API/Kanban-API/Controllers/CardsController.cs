@@ -94,7 +94,7 @@ namespace Kanban_API.Controllers
             var dbcard = new Card(card);
 
 
-            dbcard.CreatDate = DateTime.Now;  //Added to fix the probelm.
+            //dbcard.CreatDate = DateTime.Now;  //Added to fix the probelm.
             card.CreatDate = dbcard.CreatDate;
             card.ListId = dbcard.ListId;
 

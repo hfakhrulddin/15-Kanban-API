@@ -23,7 +23,7 @@ namespace Kanban_API
         public Card(CardModel card)
         {
             this.Update(card);
-            card.CreatDate = DateTime.Now;
+            CreatDate = DateTime.Now;// dont write (card.CreatDate)
         }
         public int CardId { get; set; }
         public int ListId { get; set; }

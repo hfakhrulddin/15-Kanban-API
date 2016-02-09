@@ -114,7 +114,7 @@ namespace Kanban_API.Controllers
             var dblist = new List(list);
 
 
-           dblist.CreatedDate = DateTime.Now;
+           //dblist.CreatedDate = DateTime.Now;
            list.CreatedDate =  dblist.CreatedDate; //those tow lines to show the user the old values with updated dates.
            list.ListId = dblist.ListId;
 

@@ -24,7 +24,7 @@ namespace Kanban_API
         public List(ListModel list)
         {
             this.Update(list);
-            list.CreatedDate = DateTime.Now;
+            CreatedDate = DateTime.Now; //list.CreatedDate = DateTime.Now;
         }
 
         public int ListId { get; set; }
